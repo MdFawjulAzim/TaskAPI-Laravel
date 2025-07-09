@@ -13,6 +13,9 @@ Route::get('/user', function (Request $request) {
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
+Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:api');
+
+
 
 Route::post('/create-task', [TaskController::class, 'store'])->middleware('auth:api')->name('create.task');
 Route::get('/show-task/{id}', [TaskController::class, 'show'])->middleware('auth:api')->name('show.task');
