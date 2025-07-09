@@ -18,3 +18,10 @@ Route::post('/create-task', [TaskController::class, 'store'])->middleware('auth:
 Route::get('/show-task/{id}', [TaskController::class, 'show'])->middleware('auth:api')->name('show.task');
 Route::get('/delete-task/{id}', [TaskController::class, 'delete'])->middleware('auth:api')->name('delete.task');
 Route::post('/update-task/{id}', [TaskController::class, 'update'])->middleware('auth:api')->name('update.task');
+
+Route::get('/test', function () {
+    return response()->json([
+        "status" => true,
+        "message" => "API Successfully Work"
+    ]);
+});
